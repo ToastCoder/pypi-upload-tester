@@ -6,6 +6,7 @@ echo -n "Username: "
 read name
 echo -n "Password: "
 read -s pass
+echo " "
 echo "Checking dependencies..."
 
 if which python3 >/dev/null;
@@ -22,6 +23,7 @@ then
 else
     echo "installing pip3"
     sudo apt install python3-pip -y
+fi
 
 pip3 install twine
 python3 setup.py sdist
