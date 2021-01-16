@@ -29,3 +29,4 @@ pip3 install twine
 python3 setup.py sdist
 echo "Uploading to test pypi..."
 twine upload --repository testpypi dist/* --username $name --password $pass
+echo "Sucessfully added to test pypi. Please check it out and test them before uploading to pypi..."
