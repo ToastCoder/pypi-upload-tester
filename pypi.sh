@@ -30,3 +30,12 @@ python3 setup.py sdist
 echo "Uploading to test pypi..."
 twine upload --repository testpypi dist/* --username $name --password $pass
 echo "Sucessfully added to test pypi. Please check it out and test them before uploading to pypi..."
+
+echo -n "Have you tested on test pypi? Ready to upload to pypi?(y/n): "
+read choice
+
+if [[ $choice -eq "y" ] || [ $choice -eq "Y" ]]
+then
+    twine upload dist/* --username $name --password $pass
+else
+    echo "Try again after testing it on test pypi."
