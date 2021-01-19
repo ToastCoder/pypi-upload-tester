@@ -18,7 +18,7 @@ check_pip()
     then
         echo "pip3 is installed. Skipping pip3 Installation..."
     else
-        echo "installing pip3"
+        echo "installing pip3..."
         sudo apt install python3-pip -y
     fi
 }
