@@ -32,19 +32,19 @@ create_dist()
 up_testpypi()
 {
     $flag0 = 0
-    while [ $flag0 -eq 0 ]
+    while [[ $flag0 -eq 0 ]]
     do
         echo "TEST PYPI UPLOAD WIZARD"
         echo -n "Please check if your source code is bug-free before proceeding.Attempt to proceed(Y/N):  "
         read flag1
-        if [[ $flag1 -eq "y" ] || [ $flag2 -eq "Y" ]]
+        if [[ $flag1 -eq "y" ]] || [[ $flag2 -eq "Y" ]]
         then
             echo "Uploading to test pypi..."
             twine upload --repository testpypi --username $1 --password $2 dist/*
             echo "Uploaded to test pypi."
             echo "Please verify the test pypi package before proceeding to actual pypi package upload."
             $flag0 = 1
-        elif [[ $flag1 -eq "n" ] || [ $flag1 -eq "N" ]]
+        elif [[ $flag1 -eq "n" ]] || [[ $flag1 -eq "N" ]]
         then
             echo "Please verify the source code and try again."
         fi
@@ -54,18 +54,18 @@ up_testpypi()
 up_pypi()
 {
     $flag0 = 0
-    while [ $flag0 -eq 0 ]
+    while [[ $flag0 -eq 0 ]]
     do
         echo "PYPI UPLOAD WIZARD"
         echo -n "Please check if your test-pypi package is bug-free before proceeding.Attempt to proceed(Y/N):  "
         read flag1
-        if [[ $flag1 -eq "y" ] || [ $flag2 -eq "Y" ]]
+        if [[ $flag1 -eq "y" ]] || [[ $flag2 -eq "Y" ]]
         then
             echo "Uploading to pypi..."
             twine upload --username $1 --password $2 dist/*
             echo "Uploaded to pypi."
             $flag0 = 1
-        elif [[ $flag1 -eq "n" ] || [ $flag1 -eq "N" ]]
+        elif [[ $flag1 -eq "n" ]] || [[ $flag1 -eq "N" ]]
         then
             echo "Please verify the test-pypi package and try again."
         fi
@@ -76,6 +76,7 @@ echo " "
 echo "PYPI Upload Tester"
 echo " "
 echo "Before we proceed, Kindly enter your Pypi Username and Password."
+echo " "
 echo -n "Username: "
 read name
 echo -n "Password: "
