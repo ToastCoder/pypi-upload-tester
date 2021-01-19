@@ -81,10 +81,16 @@ read name
 echo -n "Password: "
 read -s pass
 echo " "
-echo "Checking dependencies and verifying their installation..."
-
-check_python
-check_pip
-create_dist
-up_testpypi $name $pass
-up_pypi $name $pass
+REQ_FILE = setup.py
+if test -f "$REQ_FILE"
+then
+    echo "Checking dependencies and verifying their installation..."
+    check_python
+    check_pip
+    create_dist
+    up_testpypi $name $pass
+    up_pypi $name $pass
+else
+    echo "Unable to find setup.py in the current directory."
+    echo "Please move the script to the directory where setup.py exists."
+fi
